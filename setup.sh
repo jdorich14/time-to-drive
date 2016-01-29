@@ -9,7 +9,7 @@ do
     sudo apt-get install $dep
 done
 
-mkdir libs
-git clone https://github.com/google/googletest.git libs/googletest
-make -C libs/googletest/googletest/make gtest.a
-cp libs/googletest/googletest/make/gtest.a libs
+git clone https://github.com/google/googletest.git test/googletest
+make -C test/googletest/googletest/make gtest.a
+mkdir test/lib
+cp test/googletest/googletest/make/gtest.a test/lib
