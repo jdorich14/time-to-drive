@@ -2,7 +2,11 @@
 
 EXTRA_DEPS=(cmake g++)
 
+echo 'Installing dependencies...'
+
 for dep in "${EXTRA_DEPS[@]}"
 do
-    echo $dep
+    sudo apt-get install $dep
 done
+
+git clone https://github.com/google/googletest.git
