@@ -29,4 +29,3 @@ cd ../..
 cp jsoncpp/build/src/lib_json/libjsoncpp.a lib
 cp -r jsoncpp/include/json include
 rm -rf jsoncpp
-pwd
