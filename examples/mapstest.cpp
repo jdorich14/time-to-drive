@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
     std::string endLocation = "Quincy+MA";
 
     std::string requestUrl = mapsUrl + startLocation + "&destinations=" + endLocation;
-    
+
     curlpp::Cleanup cleanup;
     curlpp::Easy request;
     std::stringstream dataStream;
@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
 
     Json::Reader reader;
     Json::Value root;
-    // We can pass the stringstream directory to reader.parse, but creating a
+    // We can pass the stringstream directly to reader.parse, but creating a
     // string first allows us to view it.
     std::string apiData = dataStream.str();
     reader.parse(apiData, root);
@@ -46,6 +46,6 @@ int main(int argc, char** argv) {
         std::cout << "The time from " << origin << " to " << destination
                   << " is " << duration << std::endl;
     }
-    
+
     return 0;
 }
