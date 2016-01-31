@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EXTRA_DEPS=(cmake g++)
+EXTRA_DEPS=(cmake g++ libcurlpp-dev libcurl4-openssl-dev)
 
 echo 'Installing dependencies...'
 

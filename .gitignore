@@ -2,3 +2,4 @@ test/lib
 test/googletest
 lib
 include/json
+apikey
