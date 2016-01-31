@@ -3,7 +3,6 @@
 #include <curlpp/Options.hpp>
 #include <json/json.h>
 
-#include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
