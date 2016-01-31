@@ -3,3 +3,4 @@ test/googletest
 lib
 include/json
 apikey
+*.o
