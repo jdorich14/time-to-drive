@@ -1,12 +1,13 @@
 INC_DIR=../include
 LIB_DIR=../lib
 SRC_DIR=../src
+TEST_INC_DIR=include
 TEST_LIB_DIR=lib
 
 CC=g++
 LD=$(CC)
 
-CFLAGS=-I$(INC_DIR) -std=c++11
+CFLAGS=-I$(INC_DIR) -I$(TEST_INC_DIR) -std=c++11
 LDFLAGS=-L$(LIB_DIR) -L$(SRC_DIR) -L$(TEST_LIB_DIR) -lttd -ljsoncpp -lcurl -lcurlpp -lgtest
 
 tests: MapsDataTest

@@ -10,6 +10,7 @@ do
 done
 
 # Make directories
+mkdir -p test/include
 mkdir -p test/lib
 mkdir lib
 mkdir include
@@ -18,6 +19,7 @@ mkdir include
 git clone https://github.com/google/googletest.git test/googletest
 make -C test/googletest/googletest/make gtest.a
 cp test/googletest/googletest/make/gtest.a test/lib/libgtest.a
+cp -r test/googletest/googletest/include/gtest test/include
 
 # JsonCpp setup
 git clone https://github.com/open-source-parsers/jsoncpp.git
