@@ -23,7 +23,7 @@ clean:
 	rm -rf *.o bin
 
 bindir:
-	mkdir bin
+	mkdir -p bin
 
 libttd.a:
 	$(MAKE) -C $(SRC_DIR) libttd.a
