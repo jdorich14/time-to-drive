@@ -20,6 +20,7 @@ git clone https://github.com/google/googletest.git test/googletest
 make -C test/googletest/googletest/make gtest.a
 cp test/googletest/googletest/make/gtest.a test/lib/libgtest.a
 cp -r test/googletest/googletest/include/gtest test/include
+rm -rf test/googletest
 
 # JsonCpp setup
 git clone https://github.com/open-source-parsers/jsoncpp.git
