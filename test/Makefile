@@ -17,5 +17,9 @@ MapsDataTest: MapsDataTest.o libttd.a
 MapsDataTest.o: MapsDataTest.cpp
 	$(CC) $(CFLAGS) -c MapsDataTest.cpp
 
+clean:
+	$(MAKE) -C $(SRC_DIR) clean
+	rm -f *.o MapsDataTest
+
 libttd.a:
 	$(MAKE) -C $(SRC_DIR) libttd.a
