@@ -1,6 +1,8 @@
 test/lib
 test/googletest
 lib
+include/gtest
 include/json
 apikey
 *.o
+*.a
