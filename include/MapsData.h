@@ -18,6 +18,7 @@ public:
     std::string to() { return m_to; }
     int distance() { return m_distance; }
     int duration() { return m_duration; }
+    bool valid() { return m_valid; }
 
     friend std::ostream& operator<<(std::ostream& stream,
                                     const MapsData& mapsData);
