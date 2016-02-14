@@ -17,7 +17,7 @@ mkdir include
 # Google Test setup
 git clone https://github.com/google/googletest.git test/googletest
 make -C test/googletest/googletest/make gtest.a
-cp test/googletest/googletest/make/gtest.a test/lib
+cp test/googletest/googletest/make/gtest.a test/lib/libgtest.a
 
 # JsonCpp setup
 git clone https://github.com/open-source-parsers/jsoncpp.git
