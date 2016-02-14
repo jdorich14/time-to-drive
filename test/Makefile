@@ -10,17 +10,20 @@ LD=$(CC)
 CFLAGS=-I$(INC_DIR) -I$(TEST_INC_DIR) -std=c++11
 LDFLAGS=-L$(LIB_DIR) -L$(SRC_DIR) -L$(TEST_LIB_DIR) -lttd -ljsoncpp -lcurl -lcurlpp -lgtest
 
-tests: MapsDataTest
+tests: bindir MapsDataTest
 
 MapsDataTest: MapsDataTest.o libttd.a
-	$(LD) MapsDataTest.o $(LDFLAGS) -o MapsDataTest
+	$(LD) MapsDataTest.o $(LDFLAGS) -o bin/MapsDataTest
 
 MapsDataTest.o: MapsDataTest.cpp
 	$(CC) $(CFLAGS) -c MapsDataTest.cpp
 
 clean:
 	$(MAKE) -C $(SRC_DIR) clean
-	rm -f *.o MapsDataTest
+	rm -rf *.o bin
+
+bindir:
+	mkdir bin
 
 libttd.a:
 	$(MAKE) -C $(SRC_DIR) libttd.a
