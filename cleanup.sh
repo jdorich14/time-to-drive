@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rm -rf lib test
+rm -rf lib
