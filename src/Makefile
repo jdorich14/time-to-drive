@@ -15,5 +15,5 @@ MapsData.o: MapsData.cpp
 mapsapi.o: mapsapi.cpp
 	$(CC) $(CFLAGS) -c mapsapi.cpp
 
-.PHONY: clean
+clean:
 	rm -f *.o *.a

@@ -5,6 +5,7 @@
 #include <curlpp/Options.hpp>
 #include <json/json.h>
 
+#include <mapsapi.h>
 #include <MapsData.h>
 
 namespace
@@ -37,8 +38,9 @@ MapsData parseApiData(const std::string& apiData)
 
     reader.parse(apiData, root);
 
-    if (root["status"].asString() != "OK")
-        return MapsData();
+    std::string status = root["status"].asString();
+    if (status != "OK")
+        throw APIException("Query returned status " + status);
 
     std::string from = root["origin_addresses"][0].asString();
     std::string to = root["destination_addresses"][0].asString();
@@ -52,8 +54,17 @@ MapsData getDistanceInformation(const std::string& from, const std::string& to)
 {
     std::string requestUrl = ::MAPS_BASE_URL + "origins=" + from +
         "&destinations=" + to;
-    std::string requestData = ::getRequestData(requestUrl);
-    return parseApiData(requestData);
+
+    try {
+        std::string requestData = ::getRequestData(requestUrl);
+        return parseApiData(requestData);
+    } catch (curlpp::RuntimeError& e) {
+        std::string curlError = std::string(e.what());
+        throw APIException("The request could not be made: " + curlError);
+    } catch (curlpp::LogicError& e) {
+        std::string curlError = std::string(e.what());
+        throw APIException("There was an internal cURL error: " + curlError);
+    }
 }
 
 } // namespace mapsapi
