@@ -26,7 +26,7 @@ private:
 };
 
 MapsData parseApiData(const std::string& apiData);
-MapsData getDistanceInformation(const std::string& from, const std::string& to);
+MapsData getDistanceInformation(const std::string& from, const std::string& to, const std::string& apiKey);
 
 } // namespace mapsapi
 

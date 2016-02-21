@@ -50,10 +50,10 @@ MapsData parseApiData(const std::string& apiData)
     return MapsData(from, to, distance, duration);
 }
 
-MapsData getDistanceInformation(const std::string& from, const std::string& to)
+MapsData getDistanceInformation(const std::string& from, const std::string& to, const std::string& apiKey)
 {
     std::string requestUrl = ::MAPS_BASE_URL + "origins=" + from +
-        "&destinations=" + to;
+        "&destinations=" + to + "&key=" + apiKey;
 
     try {
         std::string requestData = ::getRequestData(requestUrl);
