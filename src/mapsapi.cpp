@@ -45,7 +45,7 @@ MapsData parseApiData(const std::string& apiData)
     std::string from = root["origin_addresses"][0].asString();
     std::string to = root["destination_addresses"][0].asString();
     int distance = root["rows"][0]["elements"][0]["distance"]["value"].asInt();
-    int duration = root["rows"][0]["elements"][0]["duration"]["value"].asInt();
+    int duration = root["rows"][0]["elements"][0]["duration_in_traffic"]["value"].asInt();
 
     return MapsData(from, to, distance, duration);
 }
@@ -53,7 +53,8 @@ MapsData parseApiData(const std::string& apiData)
 MapsData getDistanceInformation(const std::string& from, const std::string& to, const std::string& apiKey)
 {
     std::string requestUrl = ::MAPS_BASE_URL + "origins=" + from +
-        "&destinations=" + to + "&key=" + apiKey;
+        "&destinations=" + to + "&key=" + apiKey +
+        "&traffic_model=best_guess&departure_time=now";
 
     try {
         std::string requestData = ::getRequestData(requestUrl);
