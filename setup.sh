@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EXTRA_DEPS=(cmake g++ libcurlpp-dev libcurl4-openssl-dev)
+EXTRA_DEPS=(cmake g++ libcurlpp-dev libcurl4-openssl-dev postgresql-9.4)
 
 echo 'Installing dependencies...'
 
