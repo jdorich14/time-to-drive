@@ -1,3 +1,5 @@
+examples/bin
+examples/build
 test/bin
 test/include
 test/lib
